@@ -45,14 +45,14 @@ bt_session = requests.Session()
 
 # build request for initial auth
 initial_auth_url = server + bt_api['SignAppin']
-initial_auth_headers = {'Authorization': "PS-Auth key=" + api_key + "; runas=" + bt_user + ";}
+initial_auth_headers = {'Authorization': "PS-Auth key=" + api_key + "; runas=" + bt_user + ";"}
 
 # make initial auth request
 response = bt_session.post(initial_auth_url, headers=initial_auth_headers, verify=verify_ssl)
 
 # make second auth request with password and duo push information
 second_auth_url = server + bt_api['SignAppin']
-second_auth_headers = {'Authorization': "PS-Auth key=" + api_key + "; runas=" + bt_user + "; challenge=push; pwd=[" + bt_user_password + "]"}
+second_auth_headers = {'Authorization': "PS-Auth key=" + api_key + "; runas=" + bt_user + "; challenge=push; pwd=[" + bt_user_password + "];"}
 
 print("Please check your phone for a Duo authentication request")
 
