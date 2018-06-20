@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import requests
 import configparser
@@ -11,7 +11,13 @@ import getpass
 config = configparser.ConfigParser()
 config.read('get_admin_password.conf')
 
+print(config.sections())
+
 default = config['DEFAULT']
-username = default['user']
+username = default['username']
+admin_username = default['admin_username']
+domain = default['domain']
 server = default['server']
 api_key = default['api_key']
+
+#for key in default: print(key, default[key])
