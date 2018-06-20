@@ -4,6 +4,7 @@ import requests, json
 import configparser
 import argparse
 from getpass import getpass
+from pprint import pprint
 
 
 #get some information from a local config file
@@ -43,7 +44,8 @@ bt_session = requests.Session()
 
 # build request for initial auth
 initial_auth_url = server + bt_api['SignAppin']
-
 initial_auth_headers = {'Authorization': "PS-Auth key=" + api_key + "; runas=" + bt_user + "; pwd=[" + bt_user_password + "]"}
 
-#response = bt_session.post(initial_auth_url, )
+# make initial auth request
+response = bt_session.post(initial_auth_url, headers=initial_auth_headers)
+pprint(response)
